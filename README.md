@@ -1,2 +1,0 @@
-# intersoft
-Spring-Rest
