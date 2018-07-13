@@ -15,7 +15,7 @@ public interface PersistenceDAO<I, O> {
 	List<O> findAll() throws PersistenceException;
 
 	void update(final I input)
-			throws PersistenceException, EmptyFieldsException, DischargeDateException, NoSuchElementException;
+			throws PersistenceException, EmptyFieldsException, DischargeDateException, NoSuchElementException, ActiveAssignedException;
 
 	void delete(final String id) throws PersistenceException, NoSuchElementException, ActiveAssignedException;
 

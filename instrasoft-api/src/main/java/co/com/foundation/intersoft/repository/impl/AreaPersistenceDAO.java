@@ -45,7 +45,7 @@ public class AreaPersistenceDAO implements PersistenceDAO<AreaRequest, Area> {
 	public void delete(final String id) throws PersistenceException, NoSuchElementException {
 	}
 
-	public boolean exist(final Long id) {
+	public boolean exist(final String id) {
 		LOGGER.info("start -- exist-area method for id {}", id);
 		Query query = Query.query(Criteria.where("_id").is(id));
 		return mo.exists(query, Area.class);

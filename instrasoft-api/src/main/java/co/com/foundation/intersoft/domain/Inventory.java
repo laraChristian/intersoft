@@ -19,7 +19,7 @@ import lombok.Setter;
 public class Inventory {
 
 	@Id
-	private long _id;
+	private String _id;
 	private Long number;
 	private Date creationDate;
 	private Area area;

@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "8940c4c6-6ada-477d-ab58-8b9a886007ac",
+		"name": "intrasoft/api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "spring-apis",
+			"description": "",
+			"item": [
+				{
+					"name": "list-actives",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:28080/instrasoft-api/intrasoft-api/list-actives",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28080",
+							"path": [
+								"instrasoft-api",
+								"intrasoft-api",
+								"list-actives"
+							]
+						},
+						"description": "list all actives fiscal whitout criteria"
+					},
+					"response": []
+				},
+				{
+					"name": "create fiscal active",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n \t\"active\":{\"_id\" : null,\n\"name\" : \"PENS\",\n\"description\" : \"PENS BRAND KILOMETRIK\",\n\"serial\" : \"UI6YF\",\n\"weight\" : 0.3,\n\"width\" : 5,\n\"height\" : 0.1,\n\"length\" : 5,\n\"price\" : 200,\n\"dateOfPurchase\" : \"2018-06-09T10:00:00-00:00\",\n\"dischargeDate\" : \"2018-06-08T09:00:00-00:00\",\n\"status\" : { \"_id\" : \"st1\"},\n\"color\" : \"brown\",\n\"type\" : {\"_id\":\"tp2\"},\n\"area\" : { \"_id\" : \"aa1\"},\n\"inventory\" : { \"_id\" : \"aa1\"}\n}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:28080/instrasoft-api/intrasoft-api/create-active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28080",
+							"path": [
+								"instrasoft-api",
+								"intrasoft-api",
+								"create-active"
+							]
+						},
+						"description": "Create a fiscal active"
+					},
+					"response": []
+				},
+				{
+					"name": "update active",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\":0,\n\t\"oldSerial\":\"ti448\",\n\t\"active\":{\n\t\t\"_id\":\"80a6d1d2-6cea-4c02-be24-7401f8f692e7\",\n\t\t\"serial\":\"ti448\",\n\t\t\"dischargeDate\":\"2018-05-01T02:00:00.000Z\",\n\t\t\"status\":{\"_id\":\"st4\"}\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:28080/instrasoft-api/intrasoft-api/update-actives",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28080",
+							"path": [
+								"instrasoft-api",
+								"intrasoft-api",
+								"update-actives"
+							]
+						},
+						"description": "delete fiscal active"
+					},
+					"response": []
+				},
+				{
+					"name": "assign active",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assignation\":{\"employee\":\"aa1\", \"area\":\"\", \"active\":{\"serial\":\"F773J\"},\n\t\"date\":\"2018-07-12T08:51:00-03:00\"},\n\t\"option\":\"EMPLOYEE\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:28080/instrasoft-api/intrasoft-api/assign-active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28080",
+							"path": [
+								"instrasoft-api",
+								"intrasoft-api",
+								"assign-active"
+							]
+						},
+						"description": "Assign active to employee or area"
+					},
+					"response": []
+				},
+				{
+					"name": "delete active",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"80a6d1d2-6cea-4c02-be24-7401f8f692e7\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:28080/instrasoft-api/intrasoft-api/delete-active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28080",
+							"path": [
+								"instrasoft-api",
+								"intrasoft-api",
+								"delete-active"
+							]
+						},
+						"description": "delete active"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

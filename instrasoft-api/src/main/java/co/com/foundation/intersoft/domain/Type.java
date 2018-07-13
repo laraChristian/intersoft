@@ -16,7 +16,7 @@ import lombok.Setter;
 public class Type {
 
 	@Id
-	private Long _id;
+	private String _id;
 	private String name;
 
 	public Type() {

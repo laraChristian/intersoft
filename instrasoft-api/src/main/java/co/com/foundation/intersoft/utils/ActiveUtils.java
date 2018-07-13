@@ -13,13 +13,27 @@ public class ActiveUtils {
 
 	private static final Logger LOGGER = LogManager.getLogger(ActiveUtils.class);
 
+	public enum status {
+		ACTIVE("st1"), WRITTENOFF("st2"), REPARATION("st3"), AVAILABLE("st4"), ASSIGNED("st5");
+
+		private status(String id) {
+			this.id = id;
+		}
+
+		String id;
+
+		public String getId() {
+			return id;
+		}
+	}
+
 	private enum assigendOptions {
 		AREA, EMPLOYEE
 	}
 
 	public static Predicate<Active> isActiveOrAvailable = (Active active) -> {
 		LOGGER.info("id -> {}", active.getStatus().get_id());
-		return active.getStatus().get_id() == 1 || active.getStatus().get_id() == 4;
+		return active.getStatus().get_id().equals("st1") || active.getStatus().get_id().equals("st4");
 	};
 
 	public static Predicate<String> toAssignToArea = (option) -> option.toUpperCase()
@@ -29,16 +43,16 @@ public class ActiveUtils {
 			.equals(assigendOptions.EMPLOYEE.toString());
 
 	public static Predicate<Active> hasArea = (Active active) -> active.getArea() != null
-			&& active.getArea().get_id() > 0;
+			&& StringUtils.isNotBlank(active.getArea().get_id());
 
 	public static Predicate<Active> hasStatus = (Active active) -> active.getStatus() != null
-			&& active.getStatus().get_id() > 0;
+			&& StringUtils.isNoneBlank(active.getStatus().get_id());
 
 	public static Predicate<Active> hasInventory = (Active active) -> active.getInventory() != null
-			&& active.getInventory().get_id() > 0;
+			&& StringUtils.isNotBlank(active.get_id());
 
 	public static Predicate<Active> hasType = (Active active) -> active.getType() != null
-			&& active.getType().get_id() > 0;
+			&& StringUtils.isNotBlank(active.getType().get_id());
 
 	public static boolean hasParametersDefined(final Active active) throws EmptyFieldsException {
 		return !StringUtils.isBlank(active.getDescription()) && !StringUtils.isBlank(active.getName())

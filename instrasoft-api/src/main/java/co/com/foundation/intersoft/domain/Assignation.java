@@ -17,8 +17,8 @@ import lombok.Setter;
 public class Assignation {
 
 	private String _id;
-	private long employee;
-	private long area;
+	private String employee;
+	private String area;
 	private Active active;
 	private Date date;
 

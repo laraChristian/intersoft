@@ -38,7 +38,7 @@ public class ActiveBoundary {
 	}
 
 	public void updateActive(final ActiveRequest activeRequest)
-			throws PersistenceException, EmptyFieldsException, DischargeDateException {
+			throws PersistenceException, EmptyFieldsException, DischargeDateException, NoSuchElementException, ActiveAssignedException {
 		LOGGER.info("start -- create active method ");
 		dao.update(activeRequest);
 		LOGGER.info("end -- create active method ");

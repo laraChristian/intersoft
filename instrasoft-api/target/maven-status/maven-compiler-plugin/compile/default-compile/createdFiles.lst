@@ -23,6 +23,7 @@ co\com\foundation\intersoft\repository\impl\EmployeePersistenceDAO.class
 co\com\foundation\intersoft\messages\EmployeeRequest$EmployeeRequestBuilder.class
 co\com\foundation\intersoft\repository\impl\AreaPersistenceDAO.class
 co\com\foundation\intersoft\messages\GenericResponse.class
+co\com\foundation\intersoft\utils\ActiveUtils$status.class
 co\com\foundation\intersoft\domain\Assignation$AssignationBuilder.class
 co\com\foundation\intersoft\domain\City.class
 co\com\foundation\intersoft\exceptions\PersistenceException.class

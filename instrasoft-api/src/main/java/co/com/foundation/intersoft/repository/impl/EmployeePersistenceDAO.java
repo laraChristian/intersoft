@@ -46,7 +46,7 @@ public class EmployeePersistenceDAO implements PersistenceDAO<EmployeeRequest, E
 
 	}
 
-	public boolean exist(Long id) {
+	public boolean exist(final String id) {
 		LOGGER.info("start -- exist method to id: {}", id);
 		Query query = Query.query(Criteria.where("_id").is(id));
 		return mo.exists(query, Employee.class);

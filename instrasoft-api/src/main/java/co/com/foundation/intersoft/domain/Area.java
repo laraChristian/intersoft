@@ -18,11 +18,12 @@ import lombok.Setter;
 public class Area {
 
 	@Id
-	private Long _id;
+	private String _id;
 	private String name;
 	private City city;
 	private List<Employee> employees;
 	private List<Active> actives;
+	private List<Inventory> inventories;
 
 	public Area() {
 		super();

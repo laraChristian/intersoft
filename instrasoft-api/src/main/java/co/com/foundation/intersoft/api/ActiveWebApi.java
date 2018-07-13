@@ -84,6 +84,9 @@ public class ActiveWebApi {
 		} catch (NoSuchElementException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(GenericResponse.builder().message(e.getMessage()).build());
+		} catch (ActiveAssignedException e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.body(GenericResponse.builder().message(e.getMessage()).build());
 		} finally {
 			LOGGER.info("end -- update-active method -- ");
 		}

@@ -18,7 +18,7 @@ import lombok.Setter;
 public class City {
 
 	@Id
-	private long _id;
+	private String _id;
 	private String name;
 	private List<Area> areas;
 }

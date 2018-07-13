@@ -1,0 +1,30 @@
+Requerimientos:
+---JKD--
+version:jdk1.8.0_131
+----Server---
+Nombre: apache-tomcat
+Version: 8.5.32
+---IDE---
+Nombre: Eclipse Neon
+Version: la más reciente.
+---LOMBOK
+Lombok es una libreria para la inyeccion de codigo, esta debe ser descargada e instalada en eclipse 
+de lo contrario posiblemente no compile; aqui adjunto la info: 
+WEB SIDE: https://projectlombok.org/
+DOWNLOAD: https://projectlombok.org/download
+------
+NOTA: el .jar de lombok deberia ser copiado en el folder de eclipse en mi caso: 
+"C:\Users\user\eclipse\jee-neon\eclipse" y ejecutar el .exe de eclipse de este folder la primer vez
+--------
+TUTORIAL:http://www.vogella.com/tutorials/Lombok/article.html
+
+Compilación:
+---Consideraciones---
+--Dado que es un proyecto maven el comando para limpiar y compilar es:
+mvn clean install
+
+
+---SWAGGER--
+http://localhost:28080/instrasoft-api/v2/api-docs
+http://localhost:28080/instrasoft-api/swagger-ui.html#!/active45web45api/createActiveUsingPOST
+

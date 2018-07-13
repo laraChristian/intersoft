@@ -80,8 +80,8 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 	}
 
 	@Override
-	public void update(final ActiveRequest request)
-			throws PersistenceException, EmptyFieldsException, DischargeDateException, NoSuchElementException {
+	public void update(final ActiveRequest request) throws PersistenceException, EmptyFieldsException,
+			DischargeDateException, NoSuchElementException, ActiveAssignedException {
 
 		try {
 			Active active = request.getActive();
@@ -94,6 +94,12 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 					: request.getOldSerial();
 			if (!exist(serial)) {
 				throw new NoSuchElementException("Error - active doesn't exist");
+			}
+
+			Active temporary = mo.findOne(Query.query(Criteria.where("_id").is(request.getActive().get_id())),
+					Active.class);
+			if (temporary.getStatus().get_id().equals(ActiveUtils.status.ASSIGNED.getId())) {
+				throw new ActiveAssignedException("Error - active is assigned, should be unassigned to modify status");
 			}
 
 			if (DateUtils.isBefore(getDateOfPurchase(request.getActive().get_id()), active.getDischargeDate())) {
@@ -116,6 +122,9 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 		} catch (NoSuchElementException e) {
 			LOGGER.error(e.getMessage());
 			throw e;
+		} catch (ActiveAssignedException e) {
+			LOGGER.error(e.getMessage());
+			throw e;
 		} catch (Exception e) {
 			LOGGER.error("Error while merging active object", e);
 			throw new PersistenceException("Error while merging active object", e);
@@ -133,7 +142,7 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 				throw new NoSuchElementException("Error - active doesn't exist");
 			}
 
-			if (mo.findOne(query, Active.class).getStatus().get_id() == 5) {
+			if (mo.findOne(query, Active.class).getStatus().get_id().equals(ActiveUtils.status.ASSIGNED.getId())) {
 				throw new ActiveAssignedException("Error - active is assigned");
 			}
 			mo.remove(query, Active.class);
@@ -155,11 +164,11 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 			Assignation assignation = request.getAssignation();
 			Query getBySerial = Query.query(Criteria.where("serial").is(assignation.getActive().getSerial()));
 			Active active = mo.findOne(getBySerial, Active.class);
-			active.setStatus(Status.builder()._id(5).build());
+			active.setStatus(Status.builder()._id("st5").build());
 			update(ActiveRequest.builder().active(active).build());
 
 			if (ActiveUtils.toAssignToArea.test(request.getOption())) {
-				assignation.setEmployee(0);
+				assignation.setEmployee("");
 				Query getById = Query.query(Criteria.where("_id").is(assignation.getArea()));
 				Area area = mo.findOne(getById, Area.class);
 				if (area.getActives() != null) {
@@ -171,7 +180,7 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 			}
 
 			if (ActiveUtils.toAssignToEmployee.test(request.getOption())) {
-				assignation.setArea(0);
+				assignation.setArea("");
 				Query getById = Query.query(Criteria.where("_id").is(assignation.getEmployee()));
 				Employee employee = mo.findOne(getById, Employee.class);
 				if (employee.getActives() != null) {

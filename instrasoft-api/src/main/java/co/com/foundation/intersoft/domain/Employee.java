@@ -18,7 +18,7 @@ import lombok.Setter;
 public class Employee {
 
 	@Id
-	private long _id;
+	private String _id;
 	private String firstName;
 	private String lastName;
 	private String identification;
