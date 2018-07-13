@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,7 @@ import co.com.foundation.intersoft.messages.ActiveRequest;
 import co.com.foundation.intersoft.messages.AssignedRequest;
 import co.com.foundation.intersoft.messages.GenericResponse;
 
+@CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RestController
 @RequestMapping(value = "/intrasoft-api", produces = "application/json")
 public class ActiveWebApi {

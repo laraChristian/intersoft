@@ -28,3 +28,14 @@ mvn clean install
 http://localhost:28080/instrasoft-api/v2/api-docs
 http://localhost:28080/instrasoft-api/swagger-ui.html#!/active45web45api/createActiveUsingPOST
 
+---ANGULAR CLI CLIENT---
+---Server---
+Nombre:Node JS
+Version:ultima
+---IDE
+Nombre:Visual Studio Code (cualquier otro para trabajar con Angular).
+---TypeScript
+Version:ultima
+NOTA: abrir por terminal en mi caso (C:\git\intrasoft\intrasoft-ui) y lanzar el comando ("ng serve"),
+      para consumir el servicio debera tener la api rest desplegada de lo contrario abran errores.
+

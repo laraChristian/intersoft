@@ -1,0 +1,61 @@
+element {
+    width: 70%;
+}
+div.centerPoint {
+    top: 5%;
+}
+div.centerPoint {
+    width: 80%;
+    background-color: rgba(212, 225, 232, 0.727);
+    top: 15%;
+    /*left: 20%;
+    right: 50%;*/
+    /*transform: translateX(-50%);*/
+    position: absolute;
+    padding: 30px;
+    height: 90%;
+}
+
+div.center{
+     left: 15%;
+}
+
+* {
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+
+div.loginDiv {
+    margin-bottom: 10px;
+    width: 100%;
+    left: 50%;
+}
+
+body {
+    font-family: SouthwestSans,Arial,Helvetica,sans-serif;
+   background: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0);
+        /*background-image: url('background_1.png');*/
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-clip: border-box;
+        background-origin: padding-box;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: auto auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+body {
+    font-family: SouthwestSans,Arial,Helvetica,sans-serif;
+}
+
+div.centerDiv
+{
+  margin: auto;
+  width: 50%;
+}
