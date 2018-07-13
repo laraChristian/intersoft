@@ -21,6 +21,7 @@ import co.com.foundation.intersoft.domain.Area;
 import co.com.foundation.intersoft.domain.Assignation;
 import co.com.foundation.intersoft.domain.Employee;
 import co.com.foundation.intersoft.domain.Status;
+import co.com.foundation.intersoft.domain.Type;
 import co.com.foundation.intersoft.exceptions.ActiveAssignedException;
 import co.com.foundation.intersoft.exceptions.ActiveNotAvailableException;
 import co.com.foundation.intersoft.exceptions.DischargeDateException;
@@ -72,7 +73,17 @@ public class ActivePersistenceDAO implements PersistenceDAO<ActiveRequest, Activ
 	public List<Active> findAll() throws PersistenceException {
 		try {
 			LOGGER.info("start findAll method for active {}");
-			return mo.findAll(Active.class);
+			List<Active> actives = mo.findAll(Active.class);
+			actives.forEach((active) -> {
+				active.setType(
+						mo.findOne(Query.query(Criteria.where("_id").is(active.getType().get_id())), Type.class));
+				active.setStatus(
+						mo.findOne(Query.query(Criteria.where("_id").is(active.getStatus().get_id())), Status.class));
+
+				active.setArea(
+						mo.findOne(Query.query(Criteria.where("_id").is(active.getArea().get_id())), Area.class));
+			});
+			return actives;
 		} catch (Exception e) {
 			LOGGER.error("Error while querying active objects", e);
 			throw new PersistenceException("Error while querying active objects", e);
