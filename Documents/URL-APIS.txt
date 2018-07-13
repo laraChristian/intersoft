@@ -1,0 +1,30 @@
+Services:
+---------
+Name:list-actives
+METHOD:GET
+URL:http://localhost:28080/instrasoft-api/intrasoft-api/list-actives
+--------
+---------
+Name:create-active
+METHOD:POST
+URL:http://localhost:28080/instrasoft-api/intrasoft-api/create-active
+--------
+---------
+Name:update-actives
+METHOD:PUT
+NOTE:"llenar oldSerial con el serial actual en base de datos 
+      & Actual{"serial"} para el nuevo en caso de querer modificar
+      dicho campo" de lo contrario enviar en ambos campos el mismo serial,
+URL:http://localhost:28080/instrasoft-api/intrasoft-api/update-actives
+--------
+---------
+Name:delete-active
+METHOD:DELETE
+URL:http://localhost:28080/instrasoft-api/intrasoft-api/delete-active
+--------
+---------
+Name:assign-active
+METHOD:POST
+URL:http://localhost:28080/instrasoft-api/intrasoft-api/assign-active
+--------
+
