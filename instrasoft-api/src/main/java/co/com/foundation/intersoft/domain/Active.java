@@ -18,7 +18,7 @@ import lombok.Setter;
 public class Active {
 
 	@Id
-	private long _id;
+	private String _id;
 	private String name;
 	private String description;
 	private String serial;
@@ -31,12 +31,20 @@ public class Active {
 	private Date dischargeDate;
 	private Status status;
 	private String color;
-	private Inventory inventory;
 	private Type type;
 	private Area area;
+	private Inventory inventory;
 
 	public Active() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Active [_id=" + _id + ", name=" + name + ", description=" + description + ", serial=" + serial
+				+ ", weight=" + weight + ", width=" + width + ", height=" + height + ", length=" + length + ", price="
+				+ price + ", dateOfPurchase=" + dateOfPurchase + ", dischargeDate=" + dischargeDate + ", status="
+				+ status + ", color=" + color + ", type=" + type + ", area=" + area + ", inventory=" + inventory + "]";
 	}
 
 }

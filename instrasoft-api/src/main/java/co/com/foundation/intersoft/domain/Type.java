@@ -1,6 +1,26 @@
 package co.com.foundation.intersoft.domain;
 
-public enum Type {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-	MACHINERY, STATIONERY, IMMOVABLE_PROPERTY
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Document(collection = "document")
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+public class Type {
+
+	@Id
+	private Long _id;
+	private String name;
+
+	public Type() {
+		super();
+	}
+
 }

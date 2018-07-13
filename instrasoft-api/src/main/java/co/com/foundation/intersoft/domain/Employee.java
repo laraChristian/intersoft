@@ -24,4 +24,9 @@ public class Employee {
 	private String identification;
 	private Area area;
 	private List<Active> actives;
+
+	public Employee() {
+		super();
+	}
+
 }

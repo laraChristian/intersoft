@@ -1,8 +1,7 @@
 package co.com.foundation.intersoft.domain;
 
-import java.util.List;
+import java.util.Date;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -10,21 +9,21 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "area")
+@Document(collection = "assignation")
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
-public class Area {
+public class Assignation {
 
-	@Id
-	private Long _id;
-	private String name;
-	private City city;
-	private List<Employee> employees;
-	private List<Active> actives;
+	private String _id;
+	private long employee;
+	private long area;
+	private Active active;
+	private Date date;
 
-	public Area() {
+	public Assignation() {
 		super();
 	}
+
 }

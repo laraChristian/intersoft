@@ -3,6 +3,7 @@
 <Configuration status="debug">
 	<Properties>
 		<Property name="filePath">C:\\tpm\\logs\\intrasoft</Property>
+		<Property name="errorPath">C:\\tpm\\logs\\intrasoft\\error</Property>
 	</Properties>
 
 	<Appenders>

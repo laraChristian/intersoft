@@ -1,8 +1,6 @@
 package co.com.foundation.intersoft.messages;
 
-import java.util.List;
-
-import co.com.foundation.intersoft.domain.Active;
+import co.com.foundation.intersoft.domain.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,10 +10,13 @@ import lombok.Setter;
 @Setter
 @Builder
 @AllArgsConstructor
-public class GenericResponse {
+public class EmployeeRequest {
 
-	private String message;
-	private String cause;
-	private List<Active> actives;
+	private long _id;
+	private Employee employee;
+
+	public EmployeeRequest() {
+		super();
+	}
 
 }
